@@ -3,6 +3,7 @@ layout: post
 title:  "My blog deployment workflow!"
 date:   2013-07-05 11:28
 categories: jekyll blog deployment
+comments: true
 ---
 
 My website lives within a git repository on [my private git site](http://git.bacongobbler.com/), and it was
