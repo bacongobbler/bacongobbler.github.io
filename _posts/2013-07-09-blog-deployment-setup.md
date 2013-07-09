@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "My blog deployment workflow!"
-date:   2013-07-05 11:28
+date:   2013-07-09
 categories: jekyll blog deployment
 comments: true
 ---
