@@ -40,27 +40,30 @@ Create the public HTML folder to store your website and give access rights to th
 '$_' grabs the last argument from the last command, which would be '/var/www/www.server.com'.
 Now, start defining your post-receive hook to deploy your app:
 
-    $ cat > hooks/post-receive
-    #!/bin/sh
-    GIT_REPO=git@github.com:user/blog.git
-    TMP_GIT_CLONE=/tmp/blog
-    PUBLIC_WWW=/var/www/blog.server.com
-    STAGING_WWW=/var/www/staging.server.com
+```
+bacongobbler@bacongobbler:~/blog.git/hooks$ cat post-receive 
+#!/bin/sh
+GIT_REPO=git@git.bacongobbler.com:bacongobbler/blog.git
+TMP_GIT_CLONE=/tmp/blog
+PUBLIC_WWW=/var/www/blog.bacongobbler.com
+STAGING_WWW=/var/www/staging.bacongobbler.com
 
-    while read oldrev newrev refname
-    do
+while read oldrev newrev refname
+do
+    branch=$(git rev-parse --symbolic --abbrev-ref $refname)
+
+    # We only want to deal with the master and staging branches
+    if [ "$branch" = "master" ]; then
         git clone -b master $GIT_REPO $TMP_GIT_CLONE
+        jekyll build -s $TMP_GIT_CLONE -d $PUBLIC_WWW
+    elif [ "$branch" = "staging" ]; then
+        git clone -b staging $GIT_REPO $TMP_GIT_CLONE
+        jekyll build -s $TMP_GIT_CLONE -d $STAGING_WWW
+    fi
 
-        branch=$(git rev-parse --symbolic --abbrev-ref $refname)
-        if [ "$branch" = "master" ]; then
-            jekyll build -s $TMP_GIT_CLONE -d $PUBLIC_WWW
-        elif [ "$branch" = "staging" ]; then
-            cd $TMP_GIT_CLONE && git checkout staging
-            jekyll build -s $TMP_GIT_CLONE -d $STAGING_WWW
-        fi
-
-        rm -rf $TMP_GIT_CLONE
-    done
+    rm -rf $TMP_GIT_CLONE
+done
+```
 
 Aside: The post-receive hook can receive multiple branches at once (for example if someone does a git push --all), so we also need to wrap the read in a while loop.
 
