@@ -5,3 +5,5 @@ author:
   email: me@bacongobbler.com
   github: bacongobbler
   twitter: bacongobbler
+timezone: America/Vancouver
+permalink: /:year/:month/:day/:title
