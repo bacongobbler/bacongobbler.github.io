@@ -26,7 +26,7 @@ At this point, we have a working Jekyll skeleton, where we can build the site. T
 
 I assume that the website will live on a server to which you have ssh access, and that things are set up so that you can ssh to it without having to type a password (i.e., that your public key is in ~/.ssh/authorized_keys on your remote server).
 
-On the server, create a bare repository on your remote server to help deploy your local one on that site:
+On the server, create a bare repository to help deploy your local one on that site:
 
     $ ssh user@server.com
     $ mkdir blog.git && cd blog.git
