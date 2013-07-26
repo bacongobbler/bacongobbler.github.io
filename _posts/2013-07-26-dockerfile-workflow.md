@@ -7,7 +7,7 @@ comments: true
 ---
 
 [Dockerfiles][dockerfile] are a simplistic way to create a repeatable workflow for creating [Docker][docker] images.
-To build an singular image, creating a description file called 'Dockerfile' will enable you to build these images.
+Creating a description file, called a 'Dockerfile', will enable you to build these images.
 When you've created the Dockerfile that you want to save, you can do so by running 'docker build .'. But what
 if you want to have multiple Dockerfiles in one folder (eg. so you can deploy multiple docker images)?
 
