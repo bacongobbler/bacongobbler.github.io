@@ -99,6 +99,8 @@ After that, you should be able to use knife:
 
 The DigitalOcean provisioning script expects one argument: the ID of the cloud region in which to host the controller. Take note of the output of the command above, then run the DigitalOcean provisioning script, which takes several minutes to complete:
 
+    $ # upload cookbooks
+    $ berks install && berks upload
     $ # workaround for DigitalOcean SSH issues
     $ rm ~/.ssh/known_hosts
     $ ./contrib/digitalocean/provision-digitalocean-controller.sh 4
