@@ -25,7 +25,7 @@ Next, we are going to create a snapshot. This snapshot is just a base Ubuntu 12.
 First, spawn up a new droplet with the following parameters:
 
     hostname: any (I typically use "deis-snapshot", but the name is arbitrary)
-    size: 512MB
+    size: 2GB
     region: any
     image: Linux Distributions - Ubuntu - Ubuntu 12.04.3 x64
     *optional* sshkey: an SSH key you want to use with this instance (will be removed later)
