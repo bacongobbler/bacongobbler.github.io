@@ -6,8 +6,6 @@ tags: devops paas
 comments: true
 ---
 
-# Why DevOps, and why PaaS?
-
 When it comes to deployments, there has been a recent push for rapid release cycles, resource orchestration, application scalability, product delivery, and quality testing. IT Administrators and Software Developers need to be able to improve collaboration and communication. This mindset is often referred to as [DevOps][devops], a term used for integrating both software development and IT together.
 
 DevOps can mean different things for different groups. Software Developers who really try to adopt a DevOps state of mind tend to stumble towards automated application deployment tools that provide application monitoring, scaling, and automated builds like Heroku, Windows Azure, or Google App Engine. IT Administrators who follow down the DevOps path want complete control over the hardware supporting their application. OpenStack, Rackspace, Amazon EC2, VSphere, and HP Cloud Services all come to mind. Clearly, both have two different optimal workflows which seem to be mutually exclusive. Heroku is awesome, and is hosted on Amazon EC2, but some companies have trust issues when it comes to offloading data on a public [PaaS][paas]. IT orchestration is cool and extremely helpful when deploying a new datacentre in a different region, but you miss out on the amazing features that a PaaS supplies for applications, which would include application scaling, monitoring, and the seemingly automagical deployment in the datacentre. But what if you could integrate the best of both worlds?
