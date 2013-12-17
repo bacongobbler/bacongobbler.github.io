@@ -3,7 +3,8 @@ pygments: true
 author:
   name: Matt Fisher
   email: me@bacongobbler.com
-  github: bacongobbler
-  twitter: bacongobbler
+  username: bacongobbler
+  github: https://github.com/bacongobbler
+  twitter: https://twitter.com/bacongobbler
 timezone: America/Vancouver
 permalink: /:year/:month/:day/:title
