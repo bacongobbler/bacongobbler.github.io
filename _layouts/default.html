@@ -1,39 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>{{ page.title }}</title>
-
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="wrapper">
-    <header>
+    <!--
+    <div class="page-header">
       <h1 class="title"><a href="/">{{ site.title }}</a></h1>
-      <a class="extra" href="/">Home</a><br />
-      <a class="extra" href="/about.html">About Me</a><br />
-    </header>
-    <section>
-      {{ content }}
-    </section>
-    <footer>
-      <div class="contact">
-        <p>
-          {{ site.author.name }}<br />
-          Product Manager, ActiveState Software Inc.<br />
-          <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><br />
-          <a href="{{ site.author.github }}">{{ site.author.github }}</a><br />
-          <a href="{{ site.author.twitter }}/">{{ site.author.twitter }}</a><br />
-        </p>
+    </div>
+    -->
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">{{ site.title }}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
       </div>
-    </footer>
-    <script src="/assets/js/scale.fix.js"></script>
+    </div>
+
+
+    <div class="col-md-4">
+      <img src="{{ site.author.gravatar }}" alt="a shark" width="100px" height="100px" />
+      <p>
+        {{ site.author.name }}<br />
+        Product Manager, ActiveState Software Inc.<br />
+        <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><br />
+        <a href="{{ site.author.github }}">{{ site.author.github }}</a><br />
+        <a href="{{ site.author.twitter }}/">{{ site.author.twitter }}</a><br />
+      </p>
+    </div>
+    <div class="col-md-8">
+      {{ content }}
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
   </body>
 </html>
