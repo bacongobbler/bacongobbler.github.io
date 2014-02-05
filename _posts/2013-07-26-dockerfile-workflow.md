@@ -2,6 +2,7 @@
 layout: post
 title:  Working with Multiple Dockerfiles
 date:   2013-07-26
+author: Matthew Fisher
 tags: docker linux cloud
 comments: true
 ---

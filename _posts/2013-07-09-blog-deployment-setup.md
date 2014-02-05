@@ -2,6 +2,7 @@
 layout: post
 title:  Blog Deployment Workfow using Nginx, Jekyll, and git post-receive Hooks
 date:   2013-07-09
+author: Matthew Fisher
 tags: jekyll blog deployment
 comments: true
 ---

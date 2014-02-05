@@ -2,6 +2,7 @@
 layout: post
 title:  How to create your own Custom Service in Stackato
 date:   2013-07-15
+author: Matthew Fisher
 tags: stackato service
 comments: true
 ---

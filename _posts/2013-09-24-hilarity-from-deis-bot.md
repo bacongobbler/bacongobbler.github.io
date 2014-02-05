@@ -2,6 +2,7 @@
 layout: post
 title:  deis-bot's many one-liners
 date:   2013-09-24
+author: Matthew Fisher
 tags: deis devops irc paas
 comments: false
 ---
