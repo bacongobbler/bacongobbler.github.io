@@ -1,4 +1,5 @@
 title: Bacongobbler's Blog
+markdown: kramdown
 pygments: true
 author:
   name: Matthew Fisher
