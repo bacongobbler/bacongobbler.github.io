@@ -1,0 +1,9 @@
+.sitebody {
+  min-height: 1000px;
+}
+
+.bottom-right {
+    position: absolute,
+    top:   0;
+    left:    0;
+}

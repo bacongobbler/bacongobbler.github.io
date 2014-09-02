@@ -1,0 +1,280 @@
+---
+layout: slideshow
+theme:  simple
+title:  Shipping Deis with Docker
+date:   2014-09-11
+author: Matthew Fisher
+tags: slideshow deis docker revealjs jekyll deployment cluster
+---
+
+<section>
+    <h1>Shipping Deis with Docker</h1>
+    <h3>Matthew Fisher</h3>
+    <h3>CEO, Fishworks</h3>
+    <h3>matthewf@opdemand.com</h3>
+    <h3><a href="https://twitter.com/bacongobbler">@bacongobbler</a></h3>
+</section>
+<section>
+    <h2>About Me</h2>
+    <ul>
+        <li>CEO of Fishworks</li>
+        <li>Self-employed contractor</li>
+        <li>bacongobbler on github, IRC, twitter</li>
+        <li>Open contributor to Deis <a href="http://deis.io/deis-0-1-1-rackspace-preview-bug-fixes/">since v0.1.1</a></li>
+    </ul>
+</section>
+<section>
+    <h2>About Deis</h2>
+    <ul>
+        <li><a href="https://github.com/deis/deis">github.com/deis/deis</a></li>
+        <li>First Multi-host Docker PaaS</li>
+        <li>Heroku-inspired workflow with Docker goodies</li>
+        <li>100% free (as in beer) and open source</li>
+        <li>Python and Go
+            <ul>
+                <li>Looking to migrate to Go soon&#8482;</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+<section>
+    <h2>Deis Today</h2>
+    <ul>
+        <li>2500 stars, 150 watchers, 300 forks</li>
+        <li>5 full-time devs</li>
+        <li>16 unique contributors in the last month</li>
+        <li>> 100 Deis deployments "in the wild" (some in prod, too!)</li>
+    </ul>
+</section>
+<section>
+    <h2>How did we get here?</h2>
+</section>
+<section>
+    <h2>Platform Approach</h2>
+    <ul>
+        <li>Should be lightweight</li>
+        <li>Make the world pluggable</li>
+        <li>Use tools which people are comfortable with</li>
+        <li>Hacking should be a breeze</li>
+        <li>Focus on working code, optimize later</li>
+    </ul>
+</section>
+<section>
+    <h2>Devops Approach</h2>
+    <ul>
+        <li>Developers own the application</li>
+        <li>Operations own the platform</li>
+    </ul>
+</section>
+<section>
+    <h2>Rush to Prototype</h2>
+    <pre>
+        <code class="bash">
+            <span>$ deis register http://deis.local</span>
+            <span>$ deis keys:add ~/.ssh/id_rsa.pub</span>
+            <span>$ deis create myapp</span>
+            <span>$ git push deis master</span>
+            <span>$ deis config:set DATABASE_URL=postgres://</span>
+            <span>$ deis scale web=8</span>
+        </code>
+    </pre>
+</section>
+<section>
+    <h2>What did we need?</h2>
+    <ul>
+        <li>API Server</li>
+        <li>Command-line Interface</li>
+        <li>Docker</li>
+        <li>Git Server</li>
+        <li>Heroku Buildpacks</li>
+        <li>Scheduler</li>
+        <li>Service Discovery</li>
+        <li>Router</li>
+    </ul>
+</section>
+<section>
+    <h2>Where does Docker fit in?</h2>
+</section>
+<section>
+    <h2>App Deployment Workflow</h2>
+    <ul>
+        <li>Receive an application's source code</li>
+        <li>Compile app to a heroku slug</li>
+        <li>Inject slug into Docker container</li>
+        <li>Inject runtime envvars in last mile stretch</li>
+        <li>Deploy app to a remote Docker cluster</li>
+        <li>Publish app to service discovery</li>
+        <li>Expose app through the router</li>
+    </ul>
+</section>
+<section>
+    <h2>Environment Variable Injection</h2>
+    <li>In-house registries accept JSON metadata on PUT requests</li>
+    <li>Therefore, with a little black magic...</li>
+</section>
+<section>
+    <h2>HOWTO inject envvars</h2>
+    <a href="https://github.com/deis/deis/blob/980cc539e66dc5f37dadfbd20d75b413fd93092c/controller/registry/private.py">Source code courtesy of deis/deis</a>
+    <pre>
+        <code class="python">
+            <span>import requests, json</span>
+            <span>latest_image = json.loads(requests.get('http://registry.example.com/v1/repositories/sample/tags/latest').text)</span>
+            <span>data = json.loads(requests.get('http://registry.example.com/v1/images/{}/json'.format(latest_image)).text)</span>
+            <span>data['config']['Env'].append('HELLO=world')</span>
+            <span>requests.put('http://registry.example.com/v1/images/{}/json'.format(latest_image), json.dumps(data))</span>
+            <span>_commit('busybox', data, _empty_tar_archive(), 'latest')</span>
+        </code>
+    </pre>
+    <pre>
+        <code class="bash">
+            <span>$ docker run registry.example.com/busybox:latest echo $HELLO</span>
+            <span>world</span>
+        </code>
+    </pre>
+</section>
+<section>
+    <h2>Is this Optimal?</h2>
+    <ul>
+        <li>No, not by any stretch</li>
+        <li><q>Focus on working code first, optimize later</q></li>
+    </ul>
+</section>
+<section>
+    <h2>More Features!</h2>
+    <ul>
+        <li>deis logs</li>
+        <li>deis run</li>
+        <li>deis releases</li>
+        <li>deis sharing</li>
+    </ul>
+</section>
+<section>
+    <h2>Deis v0.5.0</h2>
+    <img style="border:none;background:none;box-shadow:0 0 0" src="/lib/img/deis-v0.5.0.png" />
+</section>
+<section>
+    <h2>Docker gets Stable</h2>
+    <img style="border:none;background:none;box-shadow:0 0 0" src="http://gabrtv.github.io/deis-dockercon-2014/img/DockerQuality.png" />
+</section>
+<section>
+    <h2>Time to Dockerize Deis!</h2>
+</section>
+<section>
+    <h2>Deis Components</h2>
+    <ul>
+        <li>deis/builder</li>
+        <li>deis/cache</li>
+        <li>deis/controller</li>
+        <li>deis/database</li>
+        <li>deis/discovery</li>
+        <li>deis/logger</li>
+        <li>deis/registry</li>
+        <li>deis/router</li>
+    </ul>
+</section>
+<section>
+    <h2>Deis Scalability Issues</h2>
+    <ul>
+        <li>Max of 20 servers or 5 deploys/minute</li>
+        <li>Node convergence is <b>slow</b></li>
+        <li>Hard to recover from failed convergence</li>
+        <li>Parallel convergence = disaster</li>
+        <li>No disaster recovery</li>
+        <li>No cluster re-balancing</li>
+        <li>Etc...</li>
+    </ul>
+</section>
+<section>
+    <h2>TL;DR Chef != job scheduler</h2>
+    <h4>Chef == Config Management</h4>
+</section>
+<section>
+    <h2>Technical Debt</h2>
+    <ul>
+        <li>Shared directories -> images</li>
+        <li>Databag scheduler -> Fleet</li>
+        <li>Chef -> /dev/null</li>
+    </ul>
+</section>
+<section>
+    <h2>We need Fleet, Etcd and Docker. Hmm...</h2>
+</section>
+<section>
+    <img style="border:none;background:none;box-shadow:0 0 0" src="http://gabrtv.github.io/deis-dockercon-2014/img/CoreOS.png" />
+</section>
+<section>
+    <h2>Deis v0.11.0</h2>
+    <img style="border:none;background:none;box-shadow:0 0 0" src="http://gabrtv.github.io/deis-dockercon-2014/img/DeisArchitecturalDiagram.png" />
+</section>
+<section>
+    <img style="border:none;background:none;box-shadow:0 0 0" src="http://gabrtv.github.io/deis-dockercon-2014/img/DeisGitPush.png" />
+</section>
+<section>
+    <img style="border:none;background:none;box-shadow:0 0 0" src="http://gabrtv.github.io/deis-dockercon-2014/img/DeisLogo.png" />
+    <ul>
+        <li>Deployed at companies of all sizes</li>
+        <li>Active user and developer communities</li>
+        <li>Growing rapidly</li>
+    </ul>
+</section>
+<section>
+    <h2>Major features as of late</h2>
+    <ul>
+        <li>Deis pull</li>
+        <li>Build apps from Dockerfile</li>
+        <li>Logger re-written in Go</li>
+        <li>App memory/CPU limits</li>
+        <li>Tag-based scheduling</li>
+        <li>Deisctl</li>
+    </ul>
+</section>
+<section>
+    <h2>How about a Demo?</h2>
+</section>
+<section>
+    <h2>Future Plans</h2>
+</section>
+<section>
+    <h2>Mesosphere Integration</h2>
+    <ul>
+        <li>Identical workflow, enterprise-grade scheduler</li>
+        <li>Mesos is in full production at Twitter, Hubspot, Airbnb</li>
+        <li>Working closely with Mesosphere team</li>
+    </ul>
+</section>
+<section>
+    <h2>CoreUpdate</h2>
+    <li>Based on the Google Omaha protocol</li>
+    <li>Can be used to update Fleet units...</li>
+    <li>...Perfect for in-place upgrades!</li>
+</section>
+<section>
+    <h2>Things we learned</h2>
+    <ul>
+        <li>Documentation and tests first, code later</li>
+        <li>Pay attention to the ecosystem</li>
+        <li>Invest heavily in automated testing</li>
+    </ul>
+</section>
+<section>
+    <h2>Interested in Contributing?</h2>
+    <ul>
+        <li>Come talk to me (I won't bite!)</li>
+        <li>Ping me on IRC, email, twitter</li>
+        <li>Pull up an <a href="https://github.com/deis/deis/labels/easy-fix">easy-fix issue</a></li>
+        <li>We're also hiring...</li>
+    </ul>
+</section>
+<section>
+    <h2>Resources</h2>
+    <ul>
+        <li><a href="https://github.com/deis/deis">GitHub Project</a></li>
+        <li><a href="http://deis.io/overview/">Deis Overview</a></li>
+        <li><a href="http://docs.deis.io/">Deis Documentation</a></li>
+        <li><a href="http://opdemand.com/">Commercial Support</a></li>
+        <li><a href="http://opdemand.theresumator.com/">Join the Deis team</a></li>
+    </ul>
+</section>
+<section>
+    <h2>Thanks!</h2>
+</section>
