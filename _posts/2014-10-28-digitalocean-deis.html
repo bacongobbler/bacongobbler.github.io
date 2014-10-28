@@ -1,0 +1,90 @@
+---
+layout: slideshow
+theme:  simple
+title:  Deis in Production
+date:   2014-10-28
+author: Matthew Fisher
+tags: slideshow deis digitalocean deployment cluster spree commerce
+---
+
+<section>
+    <h1>Deis in Production</h1>
+    <h3>Matthew Fisher</h3>
+    <h3>matthewf@opdemand.com</h3>
+    <h3><a href="https://twitter.com/bacongobbler">@bacongobbler</a></h3>
+</section>
+<section>
+    <h2>About Me</h2>
+    <ul>
+        <li>Core maintainer of Deis</li>
+        <li>bacongobbler on github, IRC, twitter</li>
+        <li>Open contributor to Deis <a href="http://deis.io/deis-0-1-1-rackspace-preview-bug-fixes/">since v0.1.1</a></li>
+        <li>Contributed DigitalOcean support for Deis in v0.2.0</li>
+    </ul>
+</section>
+<section>
+    <h2>Demo with Spree Commerce</h2>
+</section>
+<section>
+    <h2>Recap</h2>
+    <ul>
+        <li>Cluster-wide TLS</li>
+        <li>Fleet scheduler support</li>
+        <li>Scale out processes by type</li>
+        <li>Run one-off commands</li>
+        <li>Configuration management</li>
+        <li>Log aggregation</li>
+        <li>Release management</li>
+        <li>CPU/memory limits</li>
+        <li>Custom domains</li>
+    </ul>
+</section>
+<section>
+    <h2>Other Features</h2>
+    <ul>
+        <li>Metadata scheduling support</li>
+        <li>Websocket support</li>
+        <li>Supports many deployment workflows</li>
+    </ul>
+</section>
+<section>
+    <h2>CI/CD Workflows with `deis pull`</h2>
+</section>
+<section>
+    <h2>What is `deis pull`?</h2>
+    <ul>
+        <li>docker-native workflow</li>
+        <li>imports an image from DockerHub or private registry</li>
+        <li>creates a new release using that image</li>
+    </ul>
+</section>
+<section>
+    <h2>An Example...</h2>
+    <ul>
+        <li>One dockerized app</li>
+        <li>One CD Pipeline</li>
+        <li>One new release</li>
+        <li>v1.0.0 running on Deis</li>
+    </ul>
+</section>
+<section>
+    <h2>Going through the typical workflow...</h2>
+    <ul>
+        <li>Run test suite</li>
+        <li>Code review/QA</li>
+        <li>Tag release</li>
+        <li>Post-merge hooks</li>
+    </ul>
+</section>
+<section>
+    <h2>How do we deploy the app to Deis?</h2>
+    <h3>In the post-merge hooks, of course!</h3>
+    <ul>
+        <li>build docker image, tagged as v1.1.0</li>
+        <li>push tagged image to private registry</li>
+        <li>deis pull myregistry.io/myapp:v1.1.0</li>
+    </ul>
+</section>
+<section>
+    <h2>Thanks!</h2>
+</section>
