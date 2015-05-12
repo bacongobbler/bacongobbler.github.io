@@ -4,10 +4,11 @@ pygments: true
 author:
   name: Matthew Fisher
   gravatar: https://region-a.geo-1.objects.hpcloudsvc.com/v1/94165097550687/bacongobbler/images/i-say.jpg
-  profile_picture: https://scontent-b-sea.xx.fbcdn.net/hphotos-prn1/t1.0-9/10178076_10152026102972027_6155243394617081908_n.jpg
+  profile_picture: https://region-a.geo-1.objects.hpcloudsvc.com/v1/94165097550687/bacongobbler/pictures/kauai.jpg
   email: me@bacongobbler.com
   username: bacongobbler
   github: https://github.com/bacongobbler
   twitter: https://twitter.com/bacongobbler
+  email: matthewf@fishworks.io
 timezone: America/Vancouver
 permalink: /:year/:month/:day/:title
