@@ -5,9 +5,8 @@ title: Home - Bacongobbler's Blog
 
 <div id="home">
   <h1>Welcome</h1>
-  <p>Welcome to the home of Matthew Fisher.</p>
-  <p>I talk about software development, mostly in the realm of automation, IaaS, and PaaS. I am interested in testing, documentation, scripting, Docker, and much more.</p>
-  <p>I currently live in Vancouver, Canada, and I love my tea and cheese. I make it my personal goal to enjoy the best food that each city can provide while on my travels.</p>
+  <img src="{{ site.author.profile_picture }}" height="350px" width="450px" />
+  <p>Hi! I'm Matthew Fisher, a Canadian software developer, currently working on some pretty awesome stuff with <a href="http://deis.io">Deis</a>.You can usually find me lurking on <a href="{{ site.author.github }}">Github</a> or on <a href="irc://irc.freenode.net/deis">IRC</a> with the rest of the Deis crew. I live in Vancouver Island, Canada. Please feel free to contact me at any time on <a href="{{ site.author.twitter }}">@{{ site.author.username }}</a> or by <a href="mailto:{{ site.author.email }}">email</a> if you have any questions about what I do, what I'm currently working on or want to get in touch. Thanks!</p>
   <h1>Blog Posts</h1>
   <ul class="nav nav-pills nav-stacked">
     {% for post in site.posts %}
