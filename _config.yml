@@ -1,6 +1,6 @@
 title: Bacongobbler's Blog
 markdown: kramdown
-pygments: true
+highlighter: pygments
 author:
   name: Matthew Fisher
   gravatar: https://region-a.geo-1.objects.hpcloudsvc.com/v1/94165097550687/bacongobbler/images/i-say.jpg
