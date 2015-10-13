@@ -1,0 +1,97 @@
+---
+layout: slideshow
+theme: fishworks
+title:  Kubernetes Workshop
+date:   2015-10-13
+author: Matthew Fisher
+tags: slideshow deis docker kubernetes workshop
+---
+
+<section>
+    <h1>Kubernetes Workshop</h1>
+    <h3>Matt Fisher</h3>
+</section>
+<section>
+    <h2>About Deis</h2>
+    <ul>
+        <li>first multi-host Docker PaaS</li>
+        <li>Heroku-inspired workflow with Docker goodies</li>
+        <li>100% free (as in beer) and open source</li>
+        <li>leverages best-of-breed software to help deploy containers</li>
+    </ul>
+</section>
+<section>
+    <h2>Where does Kubernetes fit in?</h2>
+    <ul>
+        <li>open source</li>
+        <li>orchestration system for Docker containers</li>
+        <li>best-of-breed after testing schedulers in Deis (tech previews)</li>
+    </ul>
+</section>
+<section>
+    <h2>Installing Kubernetes</h2>
+    <li>install virtualbox (v4.3.28, not v5)</li>
+    <pre><code>
+        $ export KUBERNETES_PROVIDER=vagrant
+        $ curl -sS https://get.k8s.io | bash
+    </code></pre>
+    <li>Alternatively...</li>
+    <pre><code>
+        $ git clone https://github.com/kubernetes/kubernetes
+        $ cd kubernetes
+        $ git checkout v1.1.0
+
+        $ export KUBERNETES_PROVIDER=vagrant
+        $ ./cluster/kube-up.sh
+    </code></pre>
+</section>
+<section>
+    <h2>Simple Example - Deploy Ubuntu</h2>
+    <pre><code>
+        $ git clone https://github.com/bacongobbler/kubernetes-workshop-examples
+        $ cd kubernetes-workshop-examples/ubuntu
+        $ ./cluster/kubectl.sh create -f ubuntu.yaml
+        $ # wait for it to come into the ready state
+        $ kubectl exec ubuntu -- nslookup kubernetes.default
+    </code></pre>
+</section>
+<section>
+    <h2>Little Harder - Nginx</h2>
+    <li>note: requires openssl and Go</li>
+    <pre><code>
+        $ cd ../nginx
+        $ make keys secret
+        $ ./cluster/kubectl.sh create -f /tmp/secret.json
+        $ ./cluster/kubectl.sh create -f nginx.yml
+        $ ./cluster/kubectl get nodes -o json | grep ExternalIP -A 2
+        $ ./cluster/kubectl get svc nginxsvc -o json
+        $ curl https://nodeip:nodehttpsport -k
+    </code></pre>
+</section>
+<section>
+    <h2>Hardest - Clustered Redis</h2>
+    <pre><code>
+        $ cd ../redis
+        $ kubectl create -f redis-master.yaml
+        $ kubectl create -f redis-sentinel-service.yaml
+        $ kubectl create -f redis-controller.yaml
+        $ kubectl create -f redis-sentinel-controller.yaml
+        $ kubectl scale rc redis --replicas=3
+        $ kubectl scale rc redis-sentinel --replicas=3
+        $ kubectl delete pods redis-master
+    </code></pre>
+</section>
+<section>
+    <h2>A little explanation on that last one...</h2>
+    <ol>
+        <li>create an initial master/sentinel pod</li>
+        <li>create a sentinel service</li>
+        <li>create redis slaves with a replication controller, bootstrapping from the master</li>
+        <li>create a redis sentinel replication controller</li>
+        <li>scale up to 3 replicas</li>
+        <li>delete the bootstrap pod</li>
+    </ol>
+</section>
+<section>
+    <h2>Workshop Time!</h2>
+</section>
