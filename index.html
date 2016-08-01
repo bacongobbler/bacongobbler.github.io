@@ -1,26 +1,18 @@
 ---
 layout: default
-title: Home - Bacongobbler's Blog
+title: Bacongobbler's Blog
 ---
 
-<div class="col-md-2">
-    <img src="https://avatars2.githubusercontent.com/u/1360539" alt="gravatar" width="100px" height="100px" />
-    <p>
-        {{ site.author.name }}<br />
-        <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><br />
-        <a href="{{ site.author.github }}">{{ site.author.github }}</a><br />
-        <a href="{{ site.author.twitter }}/">{{ site.author.twitter }}</a><br />
-    </p>
-</div>
-
-<div id="home">
-    <h1>Welcome</h1>
-    <img src="{{ site.author.profile_picture }}" height="350px" width="450px" />
-    <p>Hi! I'm Matthew Fisher, a Canadian software developer, currently working on some pretty awesome stuff with <a href="http://deis.io">Deis</a>.You can usually find me lurking on <a href="{{ site.author.github }}">Github</a> or on <a href="irc://irc.freenode.net/deis">IRC</a> with the rest of the Deis crew. I live in a small home on a horse estate on Vancouver Island, Canada. Please feel free to contact me at any time on <a href="{{ site.author.twitter }}">@{{ site.author.username }}</a> or by <a href="mailto:{{ site.author.email }}">email</a> if you have any questions about what I do, what I'm currently working on or want to get in touch. Thanks!</p>
-    <h1>Blog Posts</h1>
-    <ul class="nav nav-pills nav-stacked">
-        {% for post in site.posts %}
-        <li><a href="{{ post.url }}">{{ post.date | date_to_string }} &raquo;  {{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
-</div>
+<img src="{{ site.author.profile_picture }}" height="350px" width="450px" />
+<p>Hi! I'm Matthew Fisher, a Canadian software developer, currently working on some pretty awesome stuff with <a href="http://deis.io">Deis</a>.You can usually find me lurking on <a href="{{ site.author.github }}">Github</a> or on <a href="deis.slack.com">Slack</a> with the rest of the Deis crew. I live in a small home on a horse estate on Vancouver Island, Canada. Please feel free to contact me at any time on <a href="{{ site.author.twitter }}">@{{ site.author.username }}</a> or by <a href="mailto:{{ site.author.email }}">email</a> if you have any questions about what I do, what I'm currently working on or want to get in touch. Thanks!</p>
+<p>
+    <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><br />
+    <a href="{{ site.author.github }}">{{ site.author.github }}</a><br />
+    <a href="{{ site.author.twitter }}/">{{ site.author.twitter }}</a><br />
+</p>
+<h1>Blog Posts</h1>
+<ul class="nav nav-pills nav-stacked">
+    {% for post in site.posts %}
+    <li><a href="{{ post.url }}">{{ post.date | date_to_string }} &raquo;  {{ post.title }}</a></li>
+    {% endfor %}
+</ul>
