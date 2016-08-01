@@ -39,7 +39,8 @@ Assuming all maintenance has been done to the car at this point, this is what yo
 A full tune-up and fluid change, including brake fluid, transmission fluid, differential fluid,
 transfer case/ATTESSA fluid, gearbox fluid, power steering fluid and coolant swap.
 
-Suspension and brakes should be checked. This is a good time to think of replacing those old shocks.
+Suspension and brakes should be checked. This is a good time to think of replacing the old
+aftermarket suspension from Japan with a good set of coilovers.
 
 Four wheel alignment.
 
