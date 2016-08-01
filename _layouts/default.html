@@ -4,8 +4,6 @@
     <title>{{ page.title }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/lib/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/lib/css/pygment_trac.css">
     <link rel="stylesheet" href="/lib/css/styles.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -16,48 +14,19 @@
     <![endif]-->
   </head>
   <body class="sitebody">
-    <!--
-    <div class="page-header">
-      <h1 class="title"><a href="/">{{ site.title }}</a></h1>
-    </div>
-    -->
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-static-top" role="navigation">
       <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+        <div class="nav">
           <a class="navbar-brand" href="/">{{ site.title }}</a>
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="/">Home</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
       </div>
     </div>
 
-
-    <div class="col-md-2">
-      <img src="https://avatars2.githubusercontent.com/u/1360539" alt="gravatar" width="100px" height="100px" />
-      <p>
-        {{ site.author.name }}<br />
-        <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a><br />
-        <a href="{{ site.author.github }}">{{ site.author.github }}</a><br />
-        <a href="{{ site.author.twitter }}/">{{ site.author.twitter }}</a><br />
-      </p>
-    </div>
     <div class="col-md-8">
       {{ content }}
     </div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/lib/bootstrap/bootstrap.min.js"></script>
+
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-47821611-1']);

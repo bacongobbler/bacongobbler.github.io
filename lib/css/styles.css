@@ -1,3 +1,11 @@
+pre {
+    width: auto;
+    display: block;
+    padding: 1em 1em;
+    margin: auto 40px auto 40px;
+    border: solid 1px #e1e1e1
+}
+
 .sitebody {
   min-height: 1000px;
 }
