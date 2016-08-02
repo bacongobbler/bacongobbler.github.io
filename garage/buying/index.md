@@ -137,8 +137,11 @@ While you are driving in stop and go traffic, does the engine stutter, misfire, 
 shift? All are signs that the coil packs need replacing, or worse.
 
 After you have found and bought your Skyline, unless you got receipts from the previous owner(s) for
-recent maintenance, assume the car is worst-case scenario and follow the [maintenance schedule]() to
+recent maintenance, assume the car is worst-case scenario and follow the [maintenance schedule][] to
 bring it back up to date, especially the timing belt. Nobody likes buying a new car and having to
 find a new R33 RB26 block.
 
 Once that's all done, clean and detail it, give it a coat of wax and enjoy Skyline ownership.
+
+
+[maintenance schedule]: ../maintenance/schedule.html
