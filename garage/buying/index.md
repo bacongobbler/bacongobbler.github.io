@@ -38,18 +38,14 @@ is left. It is sometimes difficult to see just how thick the pads are. It helps 
 little to see around the spokes. Are the rotors scored? Resurfacing is cheap, but replacements can
 be expensive.
 
-Inside the trunk: Open the fabric panel on the bottom of the trunk area. Look behind this panel for
-evidence of bodywork, bent panels, etc. Check down in the jack well on the left for water/rust. The
-outer skin just above this area is unprotected from junk in the trunk and you can get dents from the
-inside.
+Inside the trunk: Lift the fabric on the bottom of the trunk area. Look behind this panel for
+evidence of bodywork, bent panels, etc. Check down in the spare wheel well for water/rust. This is
+a common area for water to sit, causing rust to appear.
 
 Interior: Check for signs of unusual wear. Skyline interiors are pretty rugged. The bucket seats
-will fade if left in the sun. Look for wear on the driver's seat bolsters where your backside rubs
-as you get in the car. Check the clutch and brake pedal pads. Do they look like the right amount of
-wear for the mileage on the speedo? Check the door sill near the certification sticker for another
-sticker that tells of a replaced speedometer and check the owners manual and warranty manual for
-notations of a changed speedo. Many Skylines have their speedometers replaced because the OEM ones
-only went to 180km/h. Ask the seller when the speedo was changed.
+will fade if left in the sun, and many people smoke in Japan so there cigarette burns are common.
+Look for wear on the driver's seat where you normally sit. Check the clutch and brake pedal pads. Do
+they look like the right amount of wear for the mileage on the speedo?
 
 Inspecting the body panels. Are they smooth and do the seams match well? Sight down the sides of the
 car in bright light. Do you see any ripples, roughness or other signs of body repair? If possible,
